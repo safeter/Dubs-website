@@ -109,6 +109,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .hero{display:block;height:auto;position:relative;overflow:hidden;background:var(--n);}
 .hl{width:100%;display:flex;flex-direction:column;justify-content:center;padding:6rem 0 4rem;position:relative;z-index:2;}
 .hr{display:none;}
+.hph{position:absolute;top:0;right:0;bottom:0;width:42%;z-index:1;opacity:0;animation:fu 0.9s 0.5s forwards;}
+.hph img{width:100%;height:100%;object-fit:cover;object-position:center 12%;filter:grayscale(20%);}
+.hph::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--n) 0%,rgba(15,15,15,0.45) 40%,rgba(15,15,15,0.05) 100%);z-index:2;}
+.hph::after{content:'';position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(to top,var(--n),transparent);z-index:2;}
 
 
 
@@ -238,6 +242,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .cta-sub{font-size:0.76rem;color:rgba(255,255,255,0.58);margin-top:0.7rem;line-height:1.58;max-width:380px;}
 .cta-em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--b);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.28);padding-bottom:3px;transition:border-color 0.2s;white-space:nowrap;}
 .cta-em:hover{border-color:var(--b);}
+.cta-act{display:flex;flex-direction:column;align-items:flex-start;gap:1rem;position:relative;z-index:1;}
+.cta-btn{background:var(--n);color:var(--b);padding:0.85rem 2.2rem;text-decoration:none;font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;transition:all 0.2s;display:inline-block;}
+.cta-btn:hover{background:#000;transform:translateY(-1px);}
 
 /* FOOTER */
 footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,255,0.04);}
@@ -272,6 +279,7 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
   /* Hero mobile: colonne simple, padding-top pour nav fixe */
   .hero{display:flex;flex-direction:column;height:auto;overflow:visible;}
   .hr{display:none;}
+  .hph{display:none;}
   .hero-inner{padding:0;}
   .hl{
     padding:4.8rem 1.1rem 2.5rem;
@@ -392,6 +400,7 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hph" aria-hidden="true"><img src="pascal-dubois-hero.webp" alt="" width="600" height="900" decoding="async"></div>
   <div class="hl">
     <div class="hero-inner">
     <p class="hk"><span data-lang="fr">Analyste · Stratège · Conférencier</span><span data-lang="en">Analyst · Strategist · Speaker</span></p>
@@ -596,7 +605,7 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
         <p class="prj-note"><span data-lang="fr">Toutes les données visibles dans les captures d'écran sont fictives et créées uniquement à des fins de démonstration — aucune information réelle sur des partenariats, contacts ou montants n'est divulguée.</span><span data-lang="en">All data visible in screenshots is fictional and created solely for demonstration purposes — no real partnership, contact or financial information is disclosed.</span></p>
       </div>
       <div class="prj-mock" aria-hidden="true">
-        <svg viewBox="0 0 540 380" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 540 380" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
           <rect width="540" height="380" fill="#161616"/>
           <!-- sidebar -->
           <rect x="0" y="0" width="112" height="380" fill="#0f0f0f"/>
@@ -693,7 +702,10 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
       <p class="cta-sub" data-lang="fr">Conférence, consultation ou simple échange — je suis disponible.</p>
       <p class="cta-sub" data-lang="en">Conference, consulting or just a conversation — I'm available.</p>
     </div>
-    <a href="mailto:dubois08@protonmail.com" class="cta-em">dubois08@protonmail.com</a>
+    <div class="cta-act">
+      <a href="mailto:dubois08@protonmail.com" class="cta-btn"><span data-lang="fr">M'écrire →</span><span data-lang="en">Write to me →</span></a>
+      <a href="mailto:dubois08@protonmail.com" class="cta-em">dubois08@protonmail.com</a>
+    </div>
   </div>
 </div>
 
