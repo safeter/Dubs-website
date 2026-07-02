@@ -52,6 +52,29 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "The Winds of Valeria",
+  "bookEdition": "Book I",
+  "author": {
+    "@type": "Person",
+    "name": "Pascal Dubois",
+    "url": "https://pascaldubois.com/"
+  },
+  "inLanguage": "en",
+  "genre": "Fantasy",
+  "datePublished": "2026-06-15",
+  "image": "https://pascaldubois.com/winds-of-valeria.webp",
+  "url": "https://pascaldubois.com/#book",
+  "sameAs": "https://www.amazon.ca/dp/B0H5DBSZLH",
+  "workExample": [
+    { "@type": "Book", "bookFormat": "https://schema.org/Paperback", "datePublished": "2026-06-15" },
+    { "@type": "Book", "bookFormat": "https://schema.org/EBook", "datePublished": "2026-06-15" }
+  ]
+}
+</script>
 <style>
 :root{--n:#0f0f0f;--d:#161616;--m:#1e1e1e;--r:#c0392b;--rv:#d94030;--b:#eeebe6;--g:#666;--gc:#999;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -234,6 +257,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .sul{font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--r);margin-bottom:0.45rem;}
 .sut{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.84rem;line-height:1.54;color:rgba(238,235,230,0.34);margin-bottom:0.9rem;}
 
+/* BOOK */
+.bk-s{background:var(--d);padding:2.5rem 0;}
+.bk-i{max-width:1060px;margin:0 auto;padding:2.5rem 3rem;}
+.bk-c{display:grid;grid-template-columns:280px 1fr;gap:2.5rem;margin-top:1.4rem;align-items:start;}
+.bk-cov{position:relative;}
+.bk-cov img{width:100%;height:auto;display:block;box-shadow:0 18px 45px rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.06);transition:transform 0.4s;}
+.bk-cov:hover img{transform:translateY(-4px);}
+.bk-badge{position:absolute;top:0.9rem;left:-0.5rem;font-family:'Bebas Neue',sans-serif;font-size:0.72rem;letter-spacing:0.16em;color:var(--b);background:var(--r);padding:0.25rem 0.75rem;box-shadow:0 4px 12px rgba(0,0,0,0.4);}
+.bk-tt{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:600;line-height:1.1;color:var(--b);margin-bottom:0.5rem;}
+.bk-meta{font-size:0.56rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--g);margin-bottom:1.2rem;display:flex;flex-wrap:wrap;gap:0.4rem 1.1rem;}
+.bk-meta span{align-items:center;gap:0.45rem;}
+.lang-fr .bk-meta span[data-lang="fr"],.lang-en .bk-meta span[data-lang="en"]{display:inline-flex;}
+.bk-meta span::before{content:'';width:10px;height:1px;background:var(--r);flex-shrink:0;}
+.bk-d p{font-family:'Cormorant Garamond',serif;font-size:1rem;line-height:1.72;font-weight:300;color:rgba(238,235,230,0.6);margin-bottom:0.9rem;}
+.bk-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;line-height:1.6;color:rgba(238,235,230,0.42);border-left:2px solid var(--r);padding-left:0.9rem;margin:1.2rem 0 1.5rem;}
+.bk-act{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;}
+
 /* CTA */
 .cta-s{background:var(--r);padding:3rem 0;position:relative;overflow:hidden;}
 .cta-s::before{content:'PASCAL DUBOIS';position:absolute;right:-1.5rem;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,9vw,11rem);color:rgba(255,255,255,0.04);letter-spacing:0.05em;white-space:nowrap;pointer-events:none;}
@@ -333,6 +373,12 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
   .cf-t{padding:1.3rem;}
   .cf-tt{font-size:1.25rem;}
 
+  /* Book */
+  .bk-s{padding:2.2rem 1.1rem;}
+  .bk-i{padding:2rem 1.1rem;}
+  .bk-c{grid-template-columns:1fr;gap:1.8rem;}
+  .bk-cov{max-width:230px;margin:0 auto;}
+
   /* Projects */
   .prj-s{padding:2.2rem 1.1rem;}
   .prj-i{padding:2rem 1.1rem;}
@@ -380,6 +426,7 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#services" data-lang="fr">Services</a><a href="#services" data-lang="en">Services</a></li>
       <li><a href="#articles">Articles</a></li>
+      <li><a href="#book" data-lang="fr">Roman</a><a href="#book" data-lang="en">Novel</a></li>
       <li><a href="#projects" data-lang="fr">Projets</a><a href="#projects" data-lang="en">Projects</a></li>
       <li><a href="#contact" class="nc" data-lang="fr">Me contacter</a><a href="#contact" class="nc" data-lang="en">Contact me</a></li>
     </ul>
@@ -393,6 +440,7 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
   <a href="#expertise" onclick="toggleMenu()">Expertise</a>
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#articles" onclick="toggleMenu()">Articles</a>
+  <a href="#book" onclick="toggleMenu()"><span data-lang="fr">Roman</span><span data-lang="en">Novel</span></a>
   <a href="#projects" onclick="toggleMenu()"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></a>
   <a href="#contact" class="mc" onclick="toggleMenu()">Contact</a>
   <div class="ml"><button class="active" onclick="setLang('fr')">FR</button><button onclick="setLang('en')">EN</button></div>
@@ -572,6 +620,46 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
   </div>
 </section>
 
+<!-- BOOK -->
+<section id="book" class="bk-s">
+  <div class="bk-i">
+    <div class="art-h">
+      <h2 class="st" style="margin-bottom:0"><span data-lang="fr">Le <span>roman</span></span><span data-lang="en">The <span>novel</span></span></h2>
+      <a href="https://www.amazon.ca/dp/B0H5DBSZLH" target="_blank" rel="noopener" class="va"><span data-lang="fr">Voir sur Amazon →</span><span data-lang="en">View on Amazon →</span></a>
+    </div>
+    <div class="bk-c">
+      <div class="bk-cov">
+        <span class="bk-badge" data-lang="fr">Nouveau</span><span class="bk-badge" data-lang="en">New</span>
+        <a href="https://www.amazon.ca/dp/B0H5DBSZLH" target="_blank" rel="noopener">
+          <img src="winds-of-valeria.webp" alt="The Winds of Valeria — Book I, roman de Pascal Dubois" width="560" height="792" loading="lazy" decoding="async">
+        </a>
+      </div>
+      <div>
+        <p class="k">Fantasy · Book I</p>
+        <h3 class="bk-tt">The Winds of Valeria</h3>
+        <div class="bk-meta">
+          <span data-lang="fr">Paru le 15 juin 2026</span><span data-lang="en">Published June 15, 2026</span>
+          <span data-lang="fr">Broché &amp; ebook</span><span data-lang="en">Paperback &amp; ebook</span>
+          <span data-lang="fr">En anglais</span><span data-lang="en">English</span>
+        </div>
+        <div class="bk-d" data-lang="fr">
+          <p>Les Dieux ont disparu depuis toujours. Tout le monde le savait. À Valeria, la magie tombe à l'aube — une rosée d'éther recueillie perle par perle sur la terre, puis dépensée comme monnaie ou brûlée comme feu. Mais la rosée se fait rare, l'hiver descend plus au sud qu'il ne le devrait, et des murmures prétendent que les Dieux ne faisaient que dormir.</p>
+          <p>Aisla Helicon n'a jamais voulu la couronne. Les perles faiblissent, son conseil temporise, et son chancelier n'est peut-être qu'un ennemi parmi d'autres. Alexander Fell, lui, voulait seulement un endroit à appeler chez lui — des forces qui le dépassent le poussent vers le sud avec son fils, en quête d'un pouvoir hors de sa portée. Ce que les Crones lui révèlent, nul n'était censé l'entendre.</p>
+        </div>
+        <div class="bk-d" data-lang="en">
+          <p>The Gods have been gone forever. Everyone knew it. In Valeria, magic falls at dawn — ether dew gathered bead by bead from the land, then spent like coin or burned like fire. Yet dew is getting scarcer, winter is pressing farther south than it should, and there are whispers that the Gods were merely sleeping.</p>
+          <p>Aisla Helicon never wanted the crown. Now the beads are failing, her council plays it safe, and her chancellor may be one enemy of many. Alexander Fell only wanted a place to call home — forces beyond his control drive him south with his son, seeking a power beyond his grasp. What the Crones tell him, no one was meant to hear.</p>
+        </div>
+        <p class="bk-tag" data-lang="fr">Une reine qui retient un royaume en train de se briser. Un exilé qui porte son dernier secret. Et sur les plaines, un vent qui se lève — un vent qui se souvient des Dieux.</p>
+        <p class="bk-tag" data-lang="en">A Queen holding a breaking kingdom. An exile carrying its last secret. Over the grasslands, a rising wind that remembers the Gods.</p>
+        <div class="bk-act">
+          <a href="https://www.amazon.ca/dp/B0H5DBSZLH" target="_blank" rel="noopener" class="br"><span data-lang="fr">Acheter sur Amazon →</span><span data-lang="en">Buy on Amazon →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects" class="prj-s">
   <div class="prj-i">
@@ -713,6 +801,7 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#articles">Articles</a></li>
+      <li><a href="#book" data-lang="fr">Roman</a><a href="#book" data-lang="en">Novel</a></li>
       <li><a href="#projects" data-lang="fr">Projets</a><a href="#projects" data-lang="en">Projects</a></li>
       <li><a href="https://woods721787.substack.com" target="_blank">Substack</a></li>
       <li><a href="https://www.linkedin.com/in/pascal-dubois-pmp-68841158/" target="_blank">LinkedIn</a></li>
