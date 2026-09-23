@@ -173,6 +173,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .bio-t span{color:var(--r);}
 .bio-b p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.75;font-weight:300;color:rgba(238,235,230,0.65);margin-bottom:1rem;}
 .bio-b p:last-child{margin-bottom:0;}
+.bio-b a{color:var(--b);text-decoration:underline;text-decoration-color:rgba(192,57,43,0.55);text-underline-offset:3px;transition:text-decoration-color 0.2s;}
+.bio-b a:hover{text-decoration-color:var(--r);}
 
 /* EXPERTISE: 3 col compactes */
 .exp-s{background:var(--d);padding:2.5rem 0;}
@@ -313,6 +315,7 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
    ════════════════════ */
 @media(max-width:900px){
   nav{padding:0.8rem 1.1rem;}
+  .nav-inner{padding:0;}
   .nl{display:none;}
   .hb{display:flex;}
 
@@ -485,12 +488,12 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
       <div class="bio-b">
         <div data-lang="fr">
           <p>Pascal Dubois est analyste en géopolitique, conseiller en innovation et expert en politiques publiques basé à Montréal. Titulaire de la certification PMP, il opère à l'intersection des grandes transformations mondiales — là où la politique, la technologie et l'économie se percutent et redessinent les rapports de force.</p>
-          <p>Fondateur du Substack <em>Irréductible</em>, il publie des analyses qui refusent les raccourcis : sur le capitalisme en mutation, la dé-mondialisation, l'essor du techno-féodalisme et les nouvelles architectures du pouvoir global. Sa plume est bilingue, sa pensée transversale.</p>
+          <p>Fondateur du Substack <em>Irréductible</em>, il publie des analyses qui refusent les raccourcis : sur le capitalisme en mutation, la dé-mondialisation, l'essor du techno-féodalisme et les nouvelles architectures du pouvoir global. Sa plume est bilingue, sa pensée transversale. Il est aussi romancier : <a href="#book"><em>The Winds of Valeria</em></a>, premier tome d'une saga de fantasy, est paru en juin 2026.</p>
           <p>Pascal intervient auprès de gouvernements, d'entreprises et d'organisations qui veulent non seulement comprendre le monde qui vient — mais se positionner pour y agir. Conférencier recherché, il transforme des enjeux complexes en leviers stratégiques concrets.</p>
         </div>
         <div data-lang="en">
           <p>Pascal Dubois is a geopolitical analyst, innovation advisor and public policy expert based in Montréal. A PMP-certified strategist, he operates at the intersection of politics, technology and economics — where global forces collide and reshape the balance of power.</p>
-          <p>Founder of the Substack <em>Irréductible</em>, he publishes analysis that resists easy answers: on capitalism in mutation, de-globalization, the rise of techno-feudalism and the new architectures of global power. Bilingual, cross-disciplinary, uncompromising.</p>
+          <p>Founder of the Substack <em>Irréductible</em>, he publishes analysis that resists easy answers: on capitalism in mutation, de-globalization, the rise of techno-feudalism and the new architectures of global power. Bilingual, cross-disciplinary, uncompromising. He is also a novelist: <a href="#book"><em>The Winds of Valeria</em></a>, the first book in a fantasy saga, was published in June 2026.</p>
           <p>Pascal works with governments, corporations and organizations that want not only to understand the world ahead — but to position themselves to shape it. A sought-after speaker, he turns complexity into strategic clarity.</p>
         </div>
       </div>
