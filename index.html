@@ -115,6 +115,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 /* SHARED */
 .k{font-size:0.56rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--r);margin-bottom:0.45rem;display:flex;align-items:center;gap:0.6rem;}
 .k::after{content:'';width:20px;height:1px;background:var(--r);flex-shrink:0;}
+.k[data-lang]{display:none;}
+.lang-fr .k[data-lang="fr"],.lang-en .k[data-lang="en"]{display:flex;}
 .st{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,2.5vw,2.4rem);letter-spacing:0.02em;line-height:0.9;color:var(--b);margin-bottom:1.4rem;}
 .st span{color:var(--r);}
 .br{background:var(--r);color:var(--b);padding:0.72rem 1.6rem;text-decoration:none;font-size:0.63rem;letter-spacing:0.13em;text-transform:uppercase;font-weight:500;transition:all 0.2s;display:inline-block;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;}
@@ -825,8 +827,8 @@ footer{background:var(--n);padding:1.8rem 0;border-top:1px solid rgba(255,255,25
 </div>
 
 <script>
-function setLang(l){document.body.className='lang-'+l;document.documentElement.lang=l;document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));document.querySelectorAll('.ml button').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));localStorage.setItem('lang',l);}
-(function(){const s=localStorage.getItem('lang');setLang(s||(navigator.language.startsWith('fr')?'fr':'en'));})();
+function setLang(l){document.body.className='lang-'+l;document.documentElement.lang=l;document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));document.querySelectorAll('.ml button').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===l));try{localStorage.setItem('lang',l);}catch(e){}}
+(function(){let s=null;try{s=localStorage.getItem('lang');}catch(e){}setLang(s||(navigator.language.startsWith('fr')?'fr':'en'));})();
 function toggleMenu(){document.getElementById('hb').classList.toggle('open');document.getElementById('mm').classList.toggle('open');}
 function openModal(){document.getElementById('modal').classList.add('open');}
 function closeModal(){document.getElementById('modal').classList.remove('open');}
@@ -846,7 +848,7 @@ document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='
       '<span class="ad" data-lang="fr">' + a.dateFR + '</span>' +
       '<span class="ad" data-lang="en">' + a.dateEN + '</span></div>' +
       '<h3 class="att">' + escHtml(a.title) + '</h3>' +
-      (a.excerpt ? '<p class="ae">' + escHtml(a.excerpt) + '…</p>' : '') +
+      (a.excerpt ? '<p class="ae">' + escHtml(a.excerpt) + '</p>' : '') +
       '<span class="ar"><span data-lang="fr">Lire sur Substack →</span><span data-lang="en">Read on Substack →</span></span>';
     return el;
   }
@@ -899,7 +901,7 @@ document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='
     lay.appendChild(col);
 
     // Re-apply current language to freshly injected data-lang elements
-    var lang = localStorage.getItem('lang') || (navigator.language.startsWith('fr') ? 'fr' : 'en');
+    var lang = document.body.className === 'lang-en' ? 'en' : 'fr';
     setLang(lang);
   }
 

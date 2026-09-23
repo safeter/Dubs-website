@@ -1,4 +1,26 @@
 const FEED_URL = 'https://woods721787.substack.com/feed';
+const EXCERPT_MAX = 150;
+
+const NAMED_ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+
+// Decode &amp; / &#8217; / &#x2019; style entities into real characters
+function decodeEntities(s) {
+  return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => {
+    if (e[0] === '#') {
+      const code = e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
+      return Number.isFinite(code) ? String.fromCodePoint(code) : m;
+    }
+    return NAMED_ENTITIES[e.toLowerCase()] ?? m;
+  });
+}
+
+// Cut at a word boundary and add an ellipsis only when the text is actually shortened
+function truncate(s, max) {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max - 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:.\-–—]+$/, '') + '…';
+}
 
 function parseItems(xml) {
   const items = [];
@@ -19,8 +41,9 @@ function parseItems(xml) {
     const descRaw = (/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/.exec(block) ||
                      /<description>([\s\S]*?)<\/description>/.exec(block) || [])[1] || '';
 
-    // Strip HTML tags and truncate to 150 chars
-    const excerpt = descRaw.replace(/<[^>]+>/g, '').replace(/&[a-z]+;/g, ' ').trim().slice(0, 150);
+    // Strip HTML tags, decode entities, collapse whitespace, cap at 150 chars
+    const text = decodeEntities(descRaw.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+    const excerpt = truncate(text, EXCERPT_MAX);
 
     // Format date as "Month YYYY" in both locales
     const d = pubDate ? new Date(pubDate) : null;
@@ -28,7 +51,7 @@ function parseItems(xml) {
     const dateEN = d ? d.toLocaleDateString('en-CA', { month: 'long', year: 'numeric' }) : '';
 
     items.push({
-      title: title.trim(),
+      title: decodeEntities(title).trim(),
       url: link.trim(),
       dateFR,
       dateEN,
