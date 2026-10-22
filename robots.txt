@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pascaldubois.com/sitemap.xml
+Sitemap: https://www.pascaldubois.com/sitemap.xml
