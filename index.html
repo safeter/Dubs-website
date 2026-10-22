@@ -151,7 +151,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(238,241,243
 .hero-inner{max-width:1060px;margin:0 auto;padding:0 3rem;width:100%;}
 .hl{width:100%;display:flex;flex-direction:column;justify-content:center;padding:7rem 0 5rem;position:relative;z-index:2;}
 .hph{position:absolute;top:0;right:0;bottom:0;aspect-ratio:2/3;max-width:46vw;z-index:1;opacity:0;animation:fu 0.9s 0.5s forwards;}
-.hph img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.hph img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(0.82) contrast(1.02);}
 @media(min-width:1441px){.hph{right:calc(50vw - 720px);-webkit-mask-image:linear-gradient(to left,transparent,#000 36%);mask-image:linear-gradient(to left,transparent,#000 36%);}}
 .hph::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--paper) 0%,rgba(238,241,243,0.55) 32%,rgba(238,241,243,0) 70%);z-index:2;}
 .hph::after{content:'';position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(to top,var(--paper),rgba(238,241,243,0));z-index:2;}
@@ -167,12 +167,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(238,241,243
 .hloc-dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(179,38,30,0.15);}
 .hloc-sep{color:var(--muted);}
 .hk{font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;opacity:0;animation:fu 0.6s 0.1s forwards;}
-.hn{font-family:var(--serif);font-weight:500;font-size:clamp(3.6rem,7.4vw,7rem);line-height:0.94;letter-spacing:-0.03em;color:var(--ink);opacity:0;animation:fu 0.6s 0.25s forwards;}
+.hn{font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,6.4vw,6.2rem);line-height:0.94;letter-spacing:-0.03em;color:var(--ink);opacity:0;animation:fu 0.6s 0.25s forwards;}
 .hn .red{color:var(--red);font-style:italic;font-weight:400;}
-.hru{width:44px;height:2px;background:var(--red);margin:1.6rem 0 1.4rem;opacity:0;animation:fu 0.6s 0.4s forwards;}
-.htag{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.5;color:var(--text);max-width:460px;opacity:0;animation:fu 0.6s 0.55s forwards;}
+.hru{width:44px;height:2px;background:var(--red);margin:1.5rem 0 1.3rem;opacity:0;animation:fu 0.6s 0.4s forwards;}
+.htag{font-family:var(--sans);font-weight:400;font-size:1.04rem;line-height:1.6;color:var(--text);max-width:480px;margin-top:1rem;opacity:0;animation:fu 0.6s 0.62s forwards;}
 .htags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.5rem;opacity:0;animation:fu 0.6s 0.7s forwards;}
 .htg{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);background:rgba(255,255,255,0.45);padding:0.32rem 0.7rem;border-radius:2px;}
+.hthesis{font-family:var(--serif);font-weight:500;font-size:clamp(1.55rem,2.5vw,2.15rem);line-height:1.16;letter-spacing:-0.015em;color:var(--ink);max-width:560px;text-wrap:balance;opacity:0;animation:fu 0.6s 0.5s forwards;}
+.hthesis em{font-style:italic;}
+.proof{background:var(--card);border-top:1px solid var(--line);}
+.proof-i{max-width:1060px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:repeat(5,1fr);}
+.pf{display:flex;flex-direction:column;gap:0.35rem;padding:1.35rem 1.2rem;border-left:1px solid var(--line);text-decoration:none;transition:background-color 0.2s;}
+.pf:first-child{border-left:none;padding-left:0;}
+a.pf:hover{background:var(--paper-2);}
+a.pf:hover .pf-v{color:var(--red);}
+.pf-l{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+.pf-v{font-family:var(--serif);font-size:1.06rem;line-height:1.25;color:var(--ink);transition:color 0.2s;}
 .hact{display:flex;gap:0.6rem;margin-top:2rem;flex-wrap:wrap;opacity:0;animation:fu 0.6s 0.85s forwards;}
 
 /* BIO */
@@ -195,22 +205,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(238,241,243
 /* EXPERTISE */
 .exp-s{background:var(--paper);padding:2.5rem 0;}
 .exp-i{max-width:1060px;margin:0 auto;padding:3.5rem 3rem;}
-.exp-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
-.ec{background:var(--card);border:1px solid var(--line);padding:1.7rem 1.6rem 1.6rem;position:relative;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;}
-.ec:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line-2);}
-.ec::after{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--red);transition:width 0.35s;}
+.exp-g{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);}
+.ec{position:relative;padding:1.9rem 2rem 0.4rem 0;}
+.ec + .ec{padding-left:2rem;border-left:1px solid var(--line);}
+.ec:last-child{padding-right:0;}
+
+.ec::after{content:'';position:absolute;top:-2px;left:0;width:0;height:2px;background:var(--red);transition:width 0.4s;}
 .ec:hover::after{width:100%;}
 .et{font-family:var(--serif);font-size:1.32rem;font-weight:500;letter-spacing:-0.005em;color:var(--ink);margin-bottom:0.6rem;line-height:1.2;}
 .ed{font-size:0.95rem;line-height:1.62;color:var(--text);}
-.etg{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:1.1rem;}
-.etg span{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--red);background:rgba(179,38,30,0.06);padding:0.22rem 0.5rem;border-radius:2px;}
+.etg{display:flex;flex-wrap:wrap;gap:0.35rem 1.1rem;margin-top:1.3rem;}
+.etg span{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--red);}
+.etg span::before{content:'';display:inline-block;width:4px;height:4px;background:currentColor;transform:rotate(45deg);margin-right:0.5rem;vertical-align:2px;}
 
 /* SERVICES */
 .svc-s{background:var(--paper-2);padding:2.5rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .svc-i{max-width:1060px;margin:0 auto;padding:3.5rem 3rem;}
-.svc-g{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:0.4rem;}
-.sc{background:var(--card);border:1px solid var(--line);padding:2rem 1.9rem;transition:box-shadow 0.25s,border-color 0.25s;}
-.sc:hover{box-shadow:var(--shadow);border-color:var(--line-2);}
+.svc-g{display:grid;grid-template-columns:1fr 1fr;margin-top:0.4rem;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);}
+.sc{padding:2.4rem 2.3rem;}
+.sc + .sc{border-left:1px solid var(--line);}
+
 .sh{display:flex;align-items:baseline;gap:0.6rem;margin-bottom:0.7rem;}
 .sv{font-family:var(--serif);font-size:1.75rem;font-weight:500;letter-spacing:-0.01em;color:var(--ink);line-height:1.1;}
 .sd{font-size:0.98rem;line-height:1.62;color:var(--text);margin-bottom:1.2rem;}
@@ -219,6 +233,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(238,241,243
 .sl li::before{content:'';width:5px;height:5px;background:var(--red);flex-shrink:0;transform:rotate(45deg);}
 .sct{display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.4rem;color:var(--red);font-family:var(--sans);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:600;transition:gap 0.2s,color 0.2s;cursor:pointer;background:none;border:none;}
 .sct:hover{gap:0.9rem;color:var(--red-d);}
+.topics{margin-top:3.4rem;}
+.tp-h{display:flex;justify-content:space-between;align-items:flex-end;gap:0.6rem 2rem;flex-wrap:wrap;margin-bottom:1.1rem;}
+.tp-t{font-family:var(--serif);font-size:1.7rem;font-weight:500;letter-spacing:-0.01em;color:var(--ink);line-height:1.15;}
+.tp-n{font-size:0.92rem;color:var(--muted);}
+.tp{list-style:none;display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink);}
+.tp li{padding:1.5rem 2.2rem 1.5rem 0;border-bottom:1px solid var(--line);}
+.tp li:nth-child(even){padding:1.5rem 0 1.5rem 2.2rem;border-left:1px solid var(--line);}
+.tp h4{font-family:var(--serif);font-size:1.28rem;font-weight:500;letter-spacing:-0.005em;line-height:1.22;color:var(--ink);margin-bottom:0.5rem;text-wrap:balance;}
+.tp p{font-size:0.95rem;line-height:1.6;color:var(--text);}
 
 /* CONFERENCES */
 .cf-s{background:var(--paper);padding:2.5rem 0;}
@@ -256,6 +279,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(238,241,243
 .ae{font-size:0.98rem;line-height:1.62;color:var(--text);margin-bottom:1.1rem;}
 .ar{display:inline-flex;align-items:center;gap:0.4rem;color:var(--red);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-top:auto;}
 .sul{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--red-n);margin-bottom:0.5rem;}
+.asu-btn{margin-top:auto;align-self:flex-start;}
 .sut{font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.5;color:var(--on-n2);margin-bottom:1rem;}
 
 /* BOOK — the one night-time band, borrowed from the cover */
@@ -313,15 +337,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(238,241,243
 .cta-act{display:flex;flex-direction:column;align-items:flex-start;gap:1.1rem;position:relative;z-index:1;}
 .cta-btn{background:var(--red);color:#fff;padding:0.95rem 2.2rem;text-decoration:none;font-size:0.76rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;transition:background-color 0.2s,transform 0.2s;display:inline-block;border-radius:2px;}
 .cta-btn:hover{background:var(--red-d);transform:translateY(-1px);}
+.cta-btn[data-lang]{display:none;}
+.lang-fr .cta-btn[data-lang="fr"],.lang-en .cta-btn[data-lang="en"]{display:inline-block;}
+.cta-s .k{color:var(--red-n);}
+.cta-lh{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--on-n2);margin-top:1.8rem;}
+.cta-list{list-style:none;margin-top:0.8rem;display:grid;grid-template-columns:1fr 1fr;gap:0.55rem 1.8rem;max-width:540px;}
+.cta-list li{font-size:0.92rem;color:var(--on-n);display:flex;align-items:center;gap:0.6rem;}
+.cta-list li::before{content:'';width:5px;height:5px;background:var(--red-n);transform:rotate(45deg);flex-shrink:0;}
+.cta-note{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.06em;color:var(--on-n2);}
 
 /* FOOTER */
-footer{background:var(--navy-3);padding:1.8rem 0;}
-.fi{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1.6rem 3rem;}
+footer{background:var(--navy-3);padding:3.4rem 0 1.6rem;}
+.fi{max-width:1060px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;}
 .flogo{color:var(--on-n);font-size:1.15rem;}
 .flogo em{color:var(--red-n);}
-.fls{display:flex;gap:1.4rem;list-style:none;flex-wrap:wrap;}
+.fls{display:flex;flex-direction:column;gap:0.6rem;list-style:none;}
 .fls a{color:var(--on-n2);text-decoration:none;font-size:0.82rem;transition:color 0.2s;}
 .fls a:hover{color:#fff;}
+.fdesc{margin-top:0.9rem;font-size:0.92rem;line-height:1.55;color:var(--on-n2);max-width:300px;}
+.fh{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--red-n);margin-bottom:1rem;}
+.fbot{width:calc(100% - 6rem);max-width:964px;margin:2.8rem auto 0;padding:1.3rem 0 0;border-top:1px solid rgba(238,241,243,0.12);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
 .fc{font-family:var(--mono);font-size:0.7rem;color:rgba(238,241,243,0.55);letter-spacing:0.04em;}
 
 /* MODAL */
@@ -350,7 +385,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .bk-s a:focus-visible,.cta-s a:focus-visible,footer a:focus-visible,.asu a:focus-visible{outline-color:var(--red-n);}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;}
-  .hk,.hn,.hru,.htag,.htags,.hact,.hloc,.hph,.js :is(.bio-i,.exp-i,.svc-i,.cf-i,.art-i,.bk-i,.prj-i,.cta-i){opacity:1!important;transform:none!important;}
+  .hk,.hn,.hru,.hthesis,.htag,.htags,.hact,.hloc,.hph,.js :is(.bio-i,.exp-i,.svc-i,.cf-i,.art-i,.bk-i,.prj-i,.cta-i){opacity:1!important;transform:none!important;}
   .bk-fx i{opacity:0.5!important;}
   html{scroll-behavior:auto;}
 }
@@ -373,10 +408,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   .hglobe{display:block;width:150px;right:-18px;top:104px;opacity:0.9;}
   .hloc{margin-top:1.6rem;}
   .cglobe{width:360px;right:-150px;top:auto;bottom:-170px;transform:none;}
-  .hk,.hn,.hru,.htag,.htags,.hact,.hloc{opacity:1!important;animation:none!important;transform:none!important;}
-  .hn{font-size:3.6rem;line-height:0.95;}
-  .hk{font-size:0.66rem;margin-bottom:1rem;}
-  .htag{font-size:1.15rem;max-width:100%;}
+  .hk,.hn,.hru,.hthesis,.htag,.htags,.hact,.hloc{opacity:1!important;animation:none!important;transform:none!important;}
+  .hn{font-size:3.3rem;line-height:0.95;}
+  .hthesis{font-size:1.5rem;max-width:100%;}
+  .proof-i{grid-template-columns:1fr 1fr;padding:0 1.1rem;}
+  .pf,.pf:first-child{border-left:none;border-top:1px solid var(--line);padding:1rem 0.9rem 1rem 0;}
+  .pf:nth-child(-n+2){border-top:none;}
+  .pf:nth-child(even){border-left:1px solid var(--line);padding-left:0.9rem;}
+  .pf:last-child{grid-column:1/-1;}
+  .hk{font-size:0.62rem;letter-spacing:0.08em;margin-bottom:1rem;}
+  .htag{font-size:1rem;max-width:100%;}
   .hru{margin:1.3rem 0 1.1rem;}
   .htags{margin-top:1.2rem;gap:0.35rem;}
   .hact{margin-top:1.6rem;gap:0.55rem;flex-direction:column;align-items:stretch;}
@@ -392,8 +433,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   /* Cards keep their inner padding on mobile */
   .exp-s,.svc-s,.cf-s,.bk-s,.prj-s,.art-s{padding:2.2rem 1.1rem;}
   .exp-g,.svc-g{grid-template-columns:1fr;gap:0.9rem;}
-  .ec{padding:1.5rem 1.3rem;}
+  .exp-g{grid-template-columns:1fr;}
+  .ec,.ec + .ec,.ec:last-child{padding:1.5rem 0 0.6rem;border-left:none;}
+  .ec + .ec{border-top:1px solid var(--line);}
   .sc{padding:1.6rem 1.3rem;}
+  .sc + .sc{border-left:none;border-top:1px solid var(--line);}
+  .tp{grid-template-columns:1fr;}
+  .tp li,.tp li:nth-child(even){padding:1.2rem 0;border-left:none;}
+  .tp-t{font-size:1.45rem;}
   .sv{font-size:1.6rem;}
 
   /* Conferences */
@@ -424,11 +471,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   .cta-s{padding:2.5rem 1.1rem;}
   .cta-i{grid-template-columns:1fr;gap:1.6rem;}
   .cta-em{font-size:1.1rem;word-break:break-all;}
+  .cta-list{grid-template-columns:1fr;}
 
   /* Footer */
   footer{padding:1.8rem 1.1rem;}
-  .fi{flex-direction:column;align-items:flex-start;gap:1rem;}
-  .fls{gap:1.1rem;}
+  .fi{grid-template-columns:1fr 1fr;gap:2rem 1.5rem;}
+  .fbrand{grid-column:1/-1;}
+  .fbot{width:100%;padding:1.2rem 0 0;}
 
   /* Section titles */
   .st,.bio-t{font-size:2.15rem;margin-bottom:1.4rem;}
@@ -436,7 +485,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   /* Single mobile gutter: side padding comes from the section only */
   .exp-i,.svc-i,.cf-i,.art-i,.bk-i,.prj-i{padding:0.9rem 0;}
   .cta-i{padding:1rem 0;}
-  .fi{padding:0.6rem 0;}
+  .fi{padding:0;}
 }
 </style>
 </head>
@@ -448,7 +497,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
     <ul class="nl">
       <li><a href="#bio" data-lang="fr">À propos</a><a href="#bio" data-lang="en">About</a></li>
       <li><a href="#expertise">Expertise</a></li>
-      <li><a href="#services" data-lang="fr">Services</a><a href="#services" data-lang="en">Services</a></li>
+      <li><a href="#services" data-lang="fr">Conférences</a><a href="#services" data-lang="en">Speaking</a></li>
       <li><a href="#articles">Articles</a></li>
       <li><a href="#book" data-lang="fr">Roman</a><a href="#book" data-lang="en">Novel</a></li>
       <li><a href="#projects" data-lang="fr">Projets</a><a href="#projects" data-lang="en">Projects</a></li>
@@ -462,7 +511,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 <div class="mm" id="mm">
   <a href="#bio" onclick="toggleMenu()"><span data-lang="fr">À propos</span><span data-lang="en">About</span></a>
   <a href="#expertise" onclick="toggleMenu()">Expertise</a>
-  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#services" onclick="toggleMenu()"><span data-lang="fr">Conférences</span><span data-lang="en">Speaking</span></a>
   <a href="#articles" onclick="toggleMenu()">Articles</a>
   <a href="#book" onclick="toggleMenu()"><span data-lang="fr">Roman</span><span data-lang="en">Novel</span></a>
   <a href="#projects" onclick="toggleMenu()"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></a>
@@ -476,27 +525,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   <div class="hph" aria-hidden="true"><img src="pascal-dubois-hero.webp" alt="" width="600" height="900" decoding="async"></div>
   <div class="hl">
     <div class="hero-inner">
-    <p class="hk"><span data-lang="fr">Analyste · Stratège · Conférencier</span><span data-lang="en">Analyst · Strategist · Speaker</span></p>
+    <p class="hk"><span data-lang="fr">Analyste géopolitique · Stratège · Conférencier</span><span data-lang="en">Geopolitical analyst · Strategist · Speaker</span></p>
     <h1 class="hn">Pascal<br><span class="red">Dubois</span></h1>
     <div class="hru"></div>
+    <p class="hthesis"><span data-lang="fr">Lire le monde qui change — <em>et agir avant lui.</em></span><span data-lang="en">Read the world as it shifts — <em>and act ahead of it.</em></span></p>
     <p class="htag">
-      <span data-lang="fr">À l'intersection de la géopolitique, des politiques publiques et de l'innovation — une lecture irréductible du monde qui change.</span>
-      <span data-lang="en">At the intersection of geopolitics, public policy and innovation — an irreducible reading of a world in transformation.</span>
+      <span data-lang="fr">À l'intersection de la géopolitique, des politiques publiques et de l'innovation : des analyses et des conférences pour les décideurs qui veulent comprendre le monde qui vient.</span>
+      <span data-lang="en">At the intersection of geopolitics, public policy and innovation: analysis and keynotes for decision-makers who want to understand the world ahead.</span>
     </p>
-    <div class="htags">
-      <span class="htg" data-lang="fr">Géopolitique</span><span class="htg" data-lang="en">Geopolitics</span>
-      <span class="htg" data-lang="fr">Politiques publiques</span><span class="htg" data-lang="en">Public Policy</span>
-      <span class="htg" data-lang="fr">Innovation</span><span class="htg" data-lang="en">Innovation</span>
-      <span class="htg" data-lang="fr">Entrepreneuriat</span><span class="htg" data-lang="en">Entrepreneurship</span>
-    </div>
     <div class="hact">
       <button class="br" onclick="openModal()"><span data-lang="fr">Réserver une conférence</span><span data-lang="en">Book a conference</span></button>
-      <a href="#expertise" class="bg"><span data-lang="fr">Mon expertise</span><span data-lang="en">My expertise</span></a>
+      <a href="https://woods721787.substack.com" target="_blank" rel="noopener" class="bg"><span data-lang="fr">Lire Irréductible →</span><span data-lang="en">Read Irréductible →</span></a>
     </div>
     <p class="hloc"><span class="hloc-dot"></span>Montréal, Québec <span class="hloc-sep">·</span> 45.50° N, 73.57° <span data-lang="fr">O</span><span data-lang="en">W</span></p>
     </div>
   </div>
 </section>
+
+<!-- CREDENTIALS -->
+<section class="proof" aria-label="Repères">
+  <div class="proof-i">
+    <a class="pf" href="#articles"><span class="pf-l"><span data-lang="fr">Fondateur · Substack</span><span data-lang="en">Founder · Substack</span></span><span class="pf-v"><em>Irréductible</em></span></a>
+    <a class="pf" href="#conferences"><span class="pf-l"><span data-lang="fr">Conférencier, 2025</span><span data-lang="en">Speaker, 2025</span></span><span class="pf-v">FWC Competition</span></a>
+    <a class="pf" href="#book"><span class="pf-l"><span data-lang="fr">Auteur</span><span data-lang="en">Author</span></span><span class="pf-v"><em>The Winds of Valeria</em></span></a>
+    <a class="pf" href="#projects"><span class="pf-l"><span data-lang="fr">Projet</span><span data-lang="en">Project</span></span><span class="pf-v">CRM · Concordia</span></a>
+    <div class="pf"><span class="pf-l">Certification</span><span class="pf-v">PMP</span></div>
+  </div>
+</section>
+
 
 <!-- BIO — photo UNIQUEMENT dans la colonne gauche, pas répétée -->
 <section id="bio" class="bio-s">
@@ -521,11 +577,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
       <h3><span data-lang="fr">En bref</span><span data-lang="en">At a glance</span></h3>
       <dl>
         <div><dt data-lang="fr">Basé à</dt><dt data-lang="en">Based in</dt><dd>Montréal, Québec</dd></div>
-        <div><dt>Certification</dt><dd>PMP — Project Management Professional</dd></div>
         <div><dt data-lang="fr">Langues</dt><dt data-lang="en">Languages</dt><dd data-lang="fr">Français · anglais</dd><dd data-lang="en">French · English</dd></div>
-        <div><dt data-lang="fr">Publie</dt><dt data-lang="en">Writes</dt><dd><a href="https://woods721787.substack.com" target="_blank" rel="noopener"><em>Irréductible</em></a><span data-lang="fr">, sur Substack</span><span data-lang="en">, on Substack</span></dd></div>
-        <div><dt data-lang="fr">Roman</dt><dt data-lang="en">Novel</dt><dd><a href="#book"><em>The Winds of Valeria</em></a> (2026)</dd></div>
-        <div><dt data-lang="fr">En ligne</dt><dt data-lang="en">Online</dt><dd><a href="https://www.linkedin.com/in/pascal-dubois-pmp-68841158/" target="_blank" rel="noopener">LinkedIn →</a></dd></div>
+        <div><dt>Certification</dt><dd>PMP — Project Management Professional</dd></div>
+        <div><dt data-lang="fr">Conférences</dt><dt data-lang="en">Speaking</dt><dd data-lang="fr">Keynotes, panels et ateliers</dd><dd data-lang="en">Keynotes, panels and workshops</dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:dubois08@protonmail.com">dubois08@protonmail.com</a></dd></div>
+        <div><dt data-lang="fr">En ligne</dt><dt data-lang="en">Online</dt><dd><a href="https://www.linkedin.com/in/pascal-dubois-pmp-68841158/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://woods721787.substack.com" target="_blank" rel="noopener">Substack</a></dd></div>
       </dl>
     </aside>
   </div>
@@ -590,6 +646,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
         <button class="sct" onclick="openModal()"><span data-lang="fr">Démarrer</span><span data-lang="en">Get started</span> <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
     </div>
+
+    <div class="topics">
+      <div class="tp-h">
+        <h3 class="tp-t"><span data-lang="fr">Thèmes de conférence</span><span data-lang="en">Speaking topics</span></h3>
+        <p class="tp-n"><span data-lang="fr">Chaque conférence est adaptée à votre public et à votre format.</span><span data-lang="en">Every talk is tailored to your audience and format.</span></p>
+      </div>
+      <ul class="tp">
+        <li><h4 data-lang="fr">Dé-mondialisation : la fin d'un ordre économique</h4><h4 data-lang="en">De-globalization: the end of an economic order</h4>
+          <p data-lang="fr">Le recul de la mondialisation redessine les chaînes d'approvisionnement, les alliances et la place des économies ouvertes comme le Québec et le Canada.</p>
+          <p data-lang="en">The retreat of globalization is redrawing supply chains, alliances and the position of open economies like Québec and Canada.</p></li>
+        <li><h4 data-lang="fr">Le capitalisme en mutation</h4><h4 data-lang="en">Capitalism in mutation</h4>
+          <p data-lang="fr">Ce qui change dans les règles du jeu économique, et ce que cela signifie pour les organisations qui doivent décider maintenant.</p>
+          <p data-lang="en">How the rules of the economic game are shifting, and what it means for organizations that must decide now.</p></li>
+        <li><h4 data-lang="fr">Techno-féodalisme et nouvelles architectures du pouvoir</h4><h4 data-lang="en">Techno-feudalism and the new architectures of power</h4>
+          <p data-lang="fr">Plateformes, données et IA : comment la technologie concentre le pouvoir économique et politique.</p>
+          <p data-lang="en">Platforms, data and AI: how technology is concentrating economic and political power.</p></li>
+        <li><h4 data-lang="fr">Goulots d'étranglement : énergie, Ormuz et le Québec</h4><h4 data-lang="en">Chokepoints: energy, Hormuz and Québec</h4>
+          <p data-lang="fr">Pourquoi un détroit à l'autre bout du monde pèse sur notre économie, et comment s'y préparer.</p>
+          <p data-lang="en">Why a strait on the other side of the world weighs on our economy, and how to prepare.</p></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -640,14 +717,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
           <h3 class="att">The New Era of Globalization</h3>
           <span class="ar">Read →</span>
         </a>
-        <div class="asu">
-          <p class="sul">Irréductible</p>
-          <p class="sut" data-lang="fr">Analyses sur l'actualité géopolitique, économique et technologique.</p>
-          <p class="sut" data-lang="en">Takes on geopolitical, economic and technological developments.</p>
-          <a href="https://woods721787.substack.com" target="_blank" class="br" style="font-size:0.58rem;padding:0.58rem 1.2rem;display:inline-block;margin-top:auto;">
-            <span data-lang="fr">S'abonner →</span><span data-lang="en">Subscribe →</span>
-          </a>
-        </div>
+        <div class="asu"><p class="sul"><span data-lang="fr">Infolettre</span><span data-lang="en">Newsletter</span> · Irréductible</p><p class="sut" data-lang="fr">Les analyses géopolitiques, économiques et technologiques, directement dans votre boîte courriel.</p><p class="sut" data-lang="en">Geopolitical, economic and technological analysis, straight to your inbox.</p><a href="https://woods721787.substack.com/subscribe" target="_blank" rel="noopener" class="br asu-btn"><span data-lang="fr">S'abonner →</span><span data-lang="en">Subscribe →</span></a></div>
       </div>
     </div>
   </div>
@@ -813,13 +883,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   <div class="gl cglobe" data-tone="dark" aria-hidden="true"><canvas></canvas><span class="hpin"></span></div>
   <div class="cta-i">
     <div>
+      <p class="k"><span data-lang="fr">Conférences · Conseil</span><span data-lang="en">Speaking · Advisory</span></p>
       <h2 class="cta-tt" data-lang="fr">Travaillons<br>ensemble</h2><h2 class="cta-tt" data-lang="en">Let's work<br>together</h2>
-      <p class="cta-sub" data-lang="fr">Conférence, consultation ou simple échange — je suis disponible.</p>
-      <p class="cta-sub" data-lang="en">Conference, consulting or just a conversation — I'm available.</p>
+      <p class="cta-sub" data-lang="fr">Conférence, consultation ou simple échange : je suis disponible.</p>
+      <p class="cta-sub" data-lang="en">Conference, consulting or just a conversation: I'm available.</p>
+      <p class="cta-lh"><span data-lang="fr">Pour une demande de conférence, précisez</span><span data-lang="en">For a speaking request, include</span></p>
+      <ul class="cta-list">
+        <li><span data-lang="fr">La date et le lieu</span><span data-lang="en">Date and location</span></li>
+        <li><span data-lang="fr">Le public et sa taille</span><span data-lang="en">Audience and size</span></li>
+        <li><span data-lang="fr">Le format : keynote, panel, atelier</span><span data-lang="en">Format: keynote, panel, workshop</span></li>
+        <li><span data-lang="fr">La langue : français ou anglais</span><span data-lang="en">Language: French or English</span></li>
+      </ul>
     </div>
     <div class="cta-act">
-      <a href="mailto:dubois08@protonmail.com" class="cta-btn"><span data-lang="fr">M'écrire →</span><span data-lang="en">Write to me →</span></a>
+      <a href="mailto:dubois08@protonmail.com?subject=Demande%20de%20conf%C3%A9rence" class="cta-btn" data-lang="fr">Demander une conférence →</a>
+      <a href="mailto:dubois08@protonmail.com?subject=Speaking%20request" class="cta-btn" data-lang="en">Request a talk →</a>
       <a href="mailto:dubois08@protonmail.com" class="cta-em">dubois08@protonmail.com</a>
+      <p class="cta-note"><span data-lang="fr">Réponse sous 48 h</span><span data-lang="en">Reply within 48 h</span></p>
     </div>
   </div>
 </div>
@@ -827,18 +907,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 <!-- FOOTER -->
 <footer>
   <div class="fi">
-    <span class="flogo">Pascal <em>Dubois</em></span>
-    <ul class="fls">
-      <li><a href="#bio" data-lang="fr">À propos</a><a href="#bio" data-lang="en">About</a></li>
-      <li><a href="#expertise">Expertise</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#articles">Articles</a></li>
-      <li><a href="#book" data-lang="fr">Roman</a><a href="#book" data-lang="en">Novel</a></li>
-      <li><a href="#projects" data-lang="fr">Projets</a><a href="#projects" data-lang="en">Projects</a></li>
-      <li><a href="https://woods721787.substack.com" target="_blank">Substack</a></li>
-      <li><a href="https://www.linkedin.com/in/pascal-dubois-pmp-68841158/" target="_blank">LinkedIn</a></li>
-    </ul>
+    <div class="fbrand">
+      <span class="flogo">Pascal <em>Dubois</em></span>
+      <p class="fdesc"><span data-lang="fr">Analyste géopolitique, stratège et conférencier. Montréal, Québec.</span><span data-lang="en">Geopolitical analyst, strategist and speaker. Montréal, Québec.</span></p>
+    </div>
+    <div class="fcol">
+      <p class="fh">Sections</p>
+      <ul class="fls">
+        <li><a href="#bio" data-lang="fr">À propos</a><a href="#bio" data-lang="en">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#services" data-lang="fr">Conférences &amp; conseil</a><a href="#services" data-lang="en">Speaking &amp; advisory</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#book" data-lang="fr">Roman</a><a href="#book" data-lang="en">Novel</a></li>
+        <li><a href="#projects" data-lang="fr">Projets</a><a href="#projects" data-lang="en">Projects</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <p class="fh"><span data-lang="fr">Suivre</span><span data-lang="en">Follow</span></p>
+      <ul class="fls">
+        <li><a href="https://woods721787.substack.com" target="_blank" rel="noopener">Irréductible · Substack</a></li>
+        <li><a href="https://www.linkedin.com/in/pascal-dubois-pmp-68841158/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:dubois08@protonmail.com">dubois08@protonmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
     <p class="fc">© 2026 Pascal Dubois</p>
+    <p class="fc">45.50° N · 73.57° <span data-lang="fr">O</span><span data-lang="en">W</span></p>
   </div>
 </footer>
 
@@ -846,8 +941,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   <div class="mb">
     <button class="mc2" onclick="closeModal()">✕</button>
     <h2 class="mt" data-lang="fr">Me contacter</h2><h2 class="mt" data-lang="en">Get in touch</h2>
-    <p class="ms" data-lang="fr">Écrivez-moi pour discuter de votre projet, conférence ou mandat de consultation.</p>
-    <p class="ms" data-lang="en">Write to me to discuss your project, speaking engagement or consulting mandate.</p>
+    <p class="ms" data-lang="fr">Écrivez-moi pour une conférence, un mandat de consultation ou un projet. Pour une conférence, précisez la date, le public et le format souhaités.</p>
+    <p class="ms" data-lang="en">Write to me about a talk, a consulting mandate or a project. For a talk, include the date, audience and format.</p>
     <a href="mailto:dubois08@protonmail.com" class="me">dubois08@protonmail.com</a>
     <p class="mn" data-lang="fr">Réponse sous 48h</p><p class="mn" data-lang="en">Response within 48h</p>
   </div>
@@ -898,10 +993,10 @@ document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='
     var el = document.createElement('div');
     el.className = 'asu';
     el.innerHTML =
-      '<p class="sul">Irréductible</p>' +
-      '<p class="sut" data-lang="fr">Analyses sur l\'actualité géopolitique, économique et technologique.</p>' +
-      '<p class="sut" data-lang="en">Takes on geopolitical, economic and technological developments.</p>' +
-      '<a href="' + SUBSTACK + '" target="_blank" class="br" style="font-size:0.58rem;padding:0.58rem 1.2rem;display:inline-block;margin-top:auto;">' +
+      '<p class="sul"><span data-lang="fr">Infolettre</span><span data-lang="en">Newsletter</span> · Irréductible</p>' +
+      '<p class="sut" data-lang="fr">Les analyses géopolitiques, économiques et technologiques, directement dans votre boîte courriel.</p>' +
+      '<p class="sut" data-lang="en">Geopolitical, economic and technological analysis, straight to your inbox.</p>' +
+      '<a href="' + SUBSTACK + '/subscribe" target="_blank" rel="noopener" class="br asu-btn">' +
       '<span data-lang="fr">S\'abonner →</span><span data-lang="en">Subscribe →</span></a>';
     return el;
   }
